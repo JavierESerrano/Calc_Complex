@@ -20,24 +20,27 @@ def divcmpl(cplx1, cplx2):
     MultDer = cplx1[0]*cplx2[0] - cplx1[1]*cplx2[1]
     Divisor = cplx2[0]**2 + cplx2[1]**2
     return (MultIzq/Divisor , MultDer/Divisor)
+
 def conjcmpl(cplx):
-    cplx[1] = cplx[1]*-1
-    return cplx
+    return (cplx[0], cplx[1]*-1)
 
 def modcmpl(cplx):
     mod = ((cplx[0]**2) + (cplx[1]**2))**(1/2)
     return mod
+
 def fasecmpl(cplx):
     numR = cplx[0]
     numI = cplx[1]
     fase = math.atan(numI/numR)
     return fase
-def convCarToPol(cplx):
+
+def polarcmpl(cplx):
     val1 = modcmpl(cplx)
     val2 = fasecmpl(cplx)
     polar = [val1, val2]
     return polar
-def convPolToCar(cplx):
+
+def cartecmpl(cplx):
     val1 = cplx[0]*math.cos(cplx[1])
     val2 = cplx[0]*math.sin(cplx[1])
     car = [val1, val2]
@@ -51,3 +54,5 @@ def printerPol(cplx):
 
 def printerReal(Num):
     print(Num)
+
+print(modcmpl((3,8)))
